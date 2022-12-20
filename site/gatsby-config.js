@@ -40,15 +40,11 @@ module.exports = {
     //Header Menu Items
     headerMenu: [
       {
-        name: 'Home',
-        slug: '/'
+        name: 'Shop',
+        slug: '/shop'
       },
       {
-        name: 'Our Team',
-        slug: '/authors'
-      },
-      {
-        name: 'Contact',
+        name: 'Liên Hệ',
         slug: '/contact'
       }
     ],

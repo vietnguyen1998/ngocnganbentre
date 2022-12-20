@@ -36,7 +36,7 @@ export default () => (
       <Button as={Link} to='/'>
         Start Learning
       </Button>
-      <Button variant='white' as={Link} to='/authors'>
+      <Button variant='white' as={Link} to='/shop'>
         View Tutors
       </Button>
     </Box>

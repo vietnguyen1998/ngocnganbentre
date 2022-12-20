@@ -59,8 +59,8 @@ module.exports = pluginOptions => {
       path: getValue(pluginOptions, 'localPaths.post', 'content/posts')
     },
     {
-      name: 'author',
-      path: getValue(pluginOptions, 'localPaths.author', 'content/authors')
+      name: 'shop',
+      path: getValue(pluginOptions, 'localPaths.author', 'content/shop')
     },
     {
       name: 'category',

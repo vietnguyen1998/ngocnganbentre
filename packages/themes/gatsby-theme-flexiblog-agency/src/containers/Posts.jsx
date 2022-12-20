@@ -15,7 +15,7 @@ const Posts = ({
 }) => {
   const { pageContext: { services = {} } = {} } = props
   const categories = useBlogCategories()
-
+  console.log(posts)
   return (
     <Layout {...props}>
       <Seo title='Home' />
