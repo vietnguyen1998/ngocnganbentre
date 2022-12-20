@@ -18,7 +18,7 @@ const styles = {
 
 export const HeaderMenu = ({ mobileMenu = {} }) => {
   const { headerMenu } = useSiteMetadata()
-
+  
   const desktopMenuNav = (
     <Navigation
       variant='horizontal'

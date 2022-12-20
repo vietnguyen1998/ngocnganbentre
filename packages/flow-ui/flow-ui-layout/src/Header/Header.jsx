@@ -5,6 +5,7 @@ import Search from '@widgets/Search'
 import { HeaderLogo } from './Header.Logo'
 import { HeaderMenu } from './Header.Menu'
 import { HeaderColorMode } from './Header.ColorMode'
+import { CartShopping } from './Header.CartShopping'
 
 const styles = {
   wrapper: {
@@ -49,12 +50,15 @@ export const Header = ({ children }) => {
           <Box sx={styles.logoContainer}>
             <HeaderLogo />
           </Box>
-          <Box sx={styles.searchContainer}>{algolia && <Search />}</Box>
+          <Box sx={styles.searchContainer}>{<Search />}</Box>
           <Box sx={styles.menuContainer}>
             <HeaderMenu mobileMenu={mobileMenu} />
           </Box>
-          <Box sx={styles.colorModeContainer}>
+          {/* <Box sx={styles.colorModeContainer}>
             {darkMode && <HeaderColorMode />}
+          </Box> */}
+          <Box sx={styles.colorModeContainer}>
+            <CartShopping />
           </Box>
         </Flex>
       </Container>
