@@ -12,7 +12,7 @@ export default {
     }
   },
   input: {
-    fontFamily: `body`,
+    fontFamily: "Segoe UI",
     border: `none`,
     bg: `omegaLight`,
     color: `omegaDark`,

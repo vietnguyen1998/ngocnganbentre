@@ -5,7 +5,7 @@
     }
   },
   "theme": {
-    "headerFontFamily": ["Inter", "sans-serif"],
-    "bodyFontFamily": ["Inter", "sans-serif"]
+    "headerFontFamily": ["Segoe UI"],
+    "bodyFontFamily": ["Segoe UI"]
   }
 }

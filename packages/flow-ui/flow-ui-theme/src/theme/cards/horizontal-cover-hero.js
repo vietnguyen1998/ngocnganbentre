@@ -63,7 +63,7 @@ export default {
     display: `block`
   },
   title: {
-    fontFamily: `heading`,
+    fontFamily: "Segoe UI",
     fontSize: [5, 6, null, 7],
     width: [`full`, null, null, `2/3`],
     color: [`heading`, null, `white`],

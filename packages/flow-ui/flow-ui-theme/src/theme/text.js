@@ -46,7 +46,7 @@ export default {
     m: 0
   },
   p: {
-    fontFamily: `body`,
+    fontFamily: "Segoe UI",
     mb: 3
   }
 }

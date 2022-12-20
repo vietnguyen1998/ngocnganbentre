@@ -8,7 +8,7 @@
     }
   },
   "theme": {
-    "headerFontFamily": ["Spectral", "serif"],
-    "bodyFontFamily": ["Karla", "sans-serif"]
+    "headerFontFamily": ["Segoe UI"],
+    "bodyFontFamily": ["Segoe UI"]
   }
 }

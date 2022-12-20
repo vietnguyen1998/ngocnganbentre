@@ -8,7 +8,7 @@ export default {
   /** MDX articles */
   pre: {
     variant: `prism`,
-    fontFamily: `monospace`,
+    fontFamily: "Segoe UI",
     hyphens: `none`,
     overflow: `auto`,
     borderRadius: `default`,
