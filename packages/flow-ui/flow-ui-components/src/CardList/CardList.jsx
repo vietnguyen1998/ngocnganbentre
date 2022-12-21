@@ -66,6 +66,7 @@ const CardList = React.forwardRef((props, ref) => {
     />
   ))
 
+  debugger
   //Cards List (Fixed or Slider)
   const CardList = () => (
     <Box sx={{ variant: cardListVariant }}>

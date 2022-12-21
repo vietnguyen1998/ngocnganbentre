@@ -29,7 +29,6 @@ const CardListSlider = React.forwardRef((props, ref) => {
     beforeChange,
     children
   } = props
-
   const context = useThemeUI()
 
   const animationSettings = {
