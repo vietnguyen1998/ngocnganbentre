@@ -29,8 +29,8 @@ const CardListSlider = React.forwardRef((props, ref) => {
     beforeChange,
     children
   } = props
-  const context = useThemeUI()
-
+debugger
+const context = useThemeUI()
   const animationSettings = {
     slidesToScroll: 1,
     autoplay: true,
