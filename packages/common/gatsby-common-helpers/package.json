@@ -8,6 +8,7 @@
   "dependencies": {
     "@elegantstack/gatsby-plugin-alias-imports": "^3.0.0",
     "gatsby-plugin-mailchimp": "^5.2.2",
-    "react-icons": "^4.3.1"
+    "react-icons": "^4.3.1",
+    "telegram-send-message": "^0.0.4"
   }
 }

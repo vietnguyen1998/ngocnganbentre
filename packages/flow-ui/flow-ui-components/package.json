@@ -16,6 +16,7 @@
     "react-reveal": "^1.2.2",
     "react-slick": "^0.29.0",
     "slick-carousel": "^1.8.1",
+    "telegram-send-message": "^0.0.4",
     "theme-ui": "^0.3.4"
   }
 }

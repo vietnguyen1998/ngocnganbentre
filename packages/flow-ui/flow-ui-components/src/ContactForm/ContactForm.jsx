@@ -26,12 +26,12 @@ const ContactForm = ({ handleSubmit, submitting, success }) => (
   >
     {success === true && (
       <Message variant='success'>
-        Thank you for contacting us. We'll get back to you soon!
+        Cảm ơn bạn, chúng tôi sẽ lên hệ bạn sớm
       </Message>
     )}
     {success === false && (
       <Message variant='error'>
-        Something went wrong. Please try again later!
+        Hệ thống đang bảo trì, vui lòng thử lại sau!
       </Message>
     )}
     <Box variant='forms.row'>
