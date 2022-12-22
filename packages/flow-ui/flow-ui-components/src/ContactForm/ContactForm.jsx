@@ -36,15 +36,20 @@ const ContactForm = ({ handleSubmit, submitting, success }) => (
     )}
     <Box variant='forms.row'>
       <Box variant='forms.column'>
-        <Label htmlFor='contact-form-name'>Name</Label>
+        <Label htmlFor='contact-form-name'>Tên</Label>
         <Input type='text' id='contact-form-name' name='name' required />
       </Box>
       <Box variant='forms.column'>
-        <Label htmlFor='contact-form-company'>Company Name</Label>
-        <Input type='text' id='contact-form-company' name='company' />
+        <Label htmlFor='contact-form-phone'>Số Điện Thoại</Label>
+        <Input
+          type='tel'
+          placeholder='(xxx) xxx-xxxx'
+          id='contact-form-phone'
+          name='phone'
+        />
       </Box>
     </Box>
-    <Box variant='forms.row'>
+    {/* <Box variant='forms.row'>
       <Box variant='forms.column'>
         <Label htmlFor='contact-form-email'>Email</Label>
         <Input
@@ -55,22 +60,14 @@ const ContactForm = ({ handleSubmit, submitting, success }) => (
           required
         />
       </Box>
-      <Box variant='forms.column'>
-        <Label htmlFor='contact-form-phone'>Phone Number</Label>
-        <Input
-          type='tel'
-          placeholder='(xxx) xxx-xxxx'
-          id='contact-form-phone'
-          name='phone'
-        />
-      </Box>
-    </Box>
-    <Box variant='forms.row'>
+      
+    </Box> */}
+    {/* <Box variant='forms.row'>
       <Label htmlFor='contact-form-subject'>Subject</Label>
       <Input type='text' id='contact-form-subject' name='subject' required />
-    </Box>
+    </Box> */}
     <Box variant='forms.row'>
-      <Label htmlFor='contact-form-message'>Your Message</Label>
+      <Label htmlFor='contact-form-message'>Nội Dung</Label>
       <Textarea name='message' id='contact-form-message' />
     </Box>
     <Button
@@ -79,7 +76,7 @@ const ContactForm = ({ handleSubmit, submitting, success }) => (
       type='submit'
       required
     >
-      Submit {submitting && <Spinner size='20' />}
+      Gửi {submitting && <Spinner size='20' />}
     </Button>
   </form>
 )
