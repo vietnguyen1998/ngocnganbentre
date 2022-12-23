@@ -64,7 +64,6 @@ const Shopping = React.forwardRef((props, ref) => {
       {...node}
     />
   ))
-  debugger
   return (
     <div>
       <Grid width={[400]} style={{ marginBottom: 24 }}>
@@ -73,7 +72,7 @@ const Shopping = React.forwardRef((props, ref) => {
             Cây Giống
           </Button>
           <Button variant='primary' sx={styles.button}>Hoa Kiểng</Button>
-          <Button variant='dark' sx={styles.button}>Cây Trong Nhà</Button>
+          <Button variant='dark' sx={styles.button}>Mai Vàng</Button>
         </Box>
         <Box style={{position: "relative"}}>
           <FaSearch style={styles.searchIcon} />
