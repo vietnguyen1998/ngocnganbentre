@@ -1,6 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Label, Input, Textarea, Button, Message, Spinner } from 'theme-ui'
+import Modal from 'react-modal'
+
 /**
  * How to enable form integration:
  *
@@ -15,15 +17,45 @@ import { Box, Label, Input, Textarea, Button, Message, Spinner } from 'theme-ui'
  * Netlify Form (https://www.gatsbyjs.com/docs/building-a-contact-form/#netlify)
  *
  */
+const customStyles = {
+  content: {
+    top: '50%',
+    left: '50%',
+    right: 'auto',
+    minWidth: 400,
+    bottom: 'auto',
+    marginRight: '-50%',
+    transform: 'translate(-50%, -50%)'
+  }
+}
+const BookingForm = ({ handleSubmit, submitting, success }) => {
+  const [modalIsOpen, setIsOpen] = React.useState(false)
+  const [event, setEvent] = React.useState(null)
 
+  function openModal() {
+    setIsOpen(true)
+  }
+  function closeModal() {
+    setIsOpen(false)
+  }
 
-const ContactForm = ({ handleSubmit, submitting, success }) => {
+  function customSubmit(e) {
+    e.preventDefault()
+    openModal()
+    setEvent(e)
+    return
+  }
+
+  function handleSubmitCustom() {
+    handleSubmit(event)
+    closeModal()
+  }
 
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={customSubmit}
       method='POST'
-      action='YOUR_ACTION_END_POINT'
+      // action='YOUR_ACTION_END_POINT'
       demo='demo'
     >
       {success === true && (
@@ -70,23 +102,34 @@ const ContactForm = ({ handleSubmit, submitting, success }) => {
         <Input type='text' id='contact-form-subject' name='subject' required />
       </Box> */}
       <Box variant='forms.row'>
-        <Label htmlFor='contact-form-message'>Nội Dung</Label>
+        <Label htmlFor='contact-form-message'>Địa Chỉ</Label>
         <Textarea name='message' id='contact-form-message' required />
       </Box>
       <Button
         variant={success || submitting ? 'disabled' : 'primary'}
         disabled={success || submitting}
-        type='submit'
         required
+        type='submit'
       >
         Gửi {submitting && <Spinner size='20' />}
       </Button>
+      <Modal
+        isOpen={modalIsOpen}
+        // onAfterOpen={afterOpenModal}
+        // onRequestClose={closeModal}
+        style={customStyles}
+        contentLabel='Example Modal'
+      >
+        <div>I am a modal</div>
+        <button onClick={handleSubmitCustom}>close</button>
+      </Modal>
     </form>
   )
 }
-export default ContactForm
 
-ContactForm.propTypes = {
+export default BookingForm
+
+BookingForm.propTypes = {
   handleSubmit: PropTypes.func,
   submitting: PropTypes.bool,
   success: PropTypes.bool

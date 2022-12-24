@@ -23,7 +23,7 @@ const PageContact = props => (
         <ContactForm />
       </Main>
       <Sidebar>
-        <Commitment />
+        {/* <Commitment /> */}
         <Divider />
         <ContactInfo />
       </Sidebar>

@@ -3,15 +3,16 @@ import { Layout, Stack, Main, Sidebar } from '@layout'
 import PageTitle from '@components/PageTitle'
 import Divider from '@components/Divider'
 import Seo from '@widgets/Seo'
+import CartItems from '@components/CartItems'
 import AuthorExpanded from '@widgets/AuthorExpanded'
 import { useBlogAuthors } from '@helpers-blog'
-import ContactForm from '@widgets/ContactForm'
+import Booking from '@widgets/Booking'
 import ContactInfo from '@widgets/ContactInfo'
 import Commitment from '@widgets/Commitment'
-
+import { Grid, Box } from 'theme-ui'
 const PageAuthors = props => {
   const authors = useBlogAuthors()
-
+  
   return (
     <Layout {...props}>
       <Seo title='Our Team' />
@@ -21,9 +22,16 @@ const PageAuthors = props => {
       </Stack>
       <Stack>
         <Main>
-          <Divider />
+          <Grid width={[400, 'auto']} gap={4}>
+            <Box bg='primary'>
+              <CartItems />
+              <Divider />
+            </Box>
+            <Box bg='muted'>
+              <Booking />
+            </Box>
+          </Grid>
         </Main>
-          <ContactForm />
       </Stack>
     </Layout>
   )

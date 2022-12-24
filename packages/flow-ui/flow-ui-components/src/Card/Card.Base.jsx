@@ -21,6 +21,7 @@ const CardBase = ({ columns, onMouseOver, ...props }) => (
   <Box
     className='blog_card'
     sx={columnSizeMatcher(columns)}
+    styles={{maxWidth: "500px"}}
     onMouseOver={onMouseOver}
     onFocus={onMouseOver}
   >
