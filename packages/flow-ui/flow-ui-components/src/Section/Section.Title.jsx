@@ -54,7 +54,7 @@ const SectionTitle = ({ title, titleLink, omitTitle, variant }) => {
         )}
         {titleLink && (
           <Badge variant='tag' sx={styles.badge} {...linkProps}>
-            View More
+            Xem thêm
           </Badge>
         )}
       </Flex>

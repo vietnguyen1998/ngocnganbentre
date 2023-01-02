@@ -77,7 +77,7 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
           <Label htmlFor='contact-form-phone'>Số Điện Thoại</Label>
           <Input
             type='tel'
-            placeholder='(xxx) xxx-xxxx'
+            placeholder='0123 456 789'
             id='contact-form-phone'
             name='phone'
             required

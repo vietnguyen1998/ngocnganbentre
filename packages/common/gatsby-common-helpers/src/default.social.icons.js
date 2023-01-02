@@ -6,7 +6,8 @@ import {
   FaFacebook,
   FaEnvelope,
   FaLink,
-  FaGlobe
+  FaGlobe,
+  FaYoutube
 } from 'react-icons/fa'
 
 export default {
@@ -17,6 +18,10 @@ export default {
   github: {
     Icon: FaGithub,
     color: 'darkslategray'
+  },
+  youtube: {
+    Icon: FaYoutube,
+    color: 'red'
   },
   twitter: {
     Icon: FaTwitter,

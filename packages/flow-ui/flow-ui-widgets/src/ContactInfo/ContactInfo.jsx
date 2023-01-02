@@ -10,9 +10,9 @@ const ContactInfo = () => {
   return (
     <Section aside title='Thông tin shop'>
       <Card variant='paper'>
-        <Text variant='p'>Interested in working together?</Text>
+        <Text variant='p'>Shop Ngọc Ngân Hân Hạnh Được Hổ Trợ Quý Khách</Text>
         <Text variant='p'>
-          Suspendisse potenti. Mauris mollis diam tempus ut.
+          Thông tin shop. 
         </Text>
         {phone && (
           <Text>

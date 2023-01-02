@@ -17,23 +17,23 @@ module.exports = {
     title: 'FlexiBlog Theme',
     name: 'FlexiBlog',
     description: 'My site description...',
-    address: 'New York, NY',
-    email: 'email@example.com',
-    phone: '+1 (888) 888-8888',
+    address: 'Cái Mơn, Chợ Lách',
+    email: 'kimngan9374@gmail.com',
+    phone: '0386 569 374',
 
     //Site Social Media Links
     social: [
       {
-        name: 'Github',
-        url: 'https://github.com/gatsbyjs'
+        name: 'Facebook',
+        url: 'https://www.facebook.com/ngan.nguyenngockim.77'
       },
       {
-        name: 'Twitter',
-        url: 'https://twitter.com/gatsbyjs'
+        name: 'Youtube',
+        url: 'https://www.youtube.com/@ngocnganbentre'
       },
       {
         name: 'Instagram',
-        url: 'https://github.com/gatsbyjs'
+        url: '/'
       }
     ],
 
@@ -52,35 +52,35 @@ module.exports = {
     //Footer Menu Items (2 Sets)
     footerMenu: [
       {
-        title: 'Quick Links',
+        title: 'Truy Cập Nhanh',
         items: [
           {
-            name: 'Advertise with us',
+            name: 'Liên hệ',
             slug: '/contact'
           },
           {
-            name: 'About Us',
+            name: 'Thông tin shop',
             slug: '/about'
           },
           {
-            name: 'Contact Us',
+            name: 'Trợ giúp',
             slug: '/contact'
           }
         ]
       },
       {
-        title: 'Legal Stuff',
+        title: 'Thủ Tục Pháp Lí',
         items: [
           {
-            name: 'Privacy Notice',
+            name: 'Quyền Riêng Tư',
             slug: '/'
           },
           {
-            name: 'Cookie Policy',
+            name: 'Cookie Thông Tin',
             slug: '/'
           },
           {
-            name: 'Terms Of Use',
+            name: 'Điều Khoản Sử Dụng',
             slug: '/'
           }
         ]

@@ -14,7 +14,7 @@ const styles = {
   },
   heading: {
     color: `omegaDark`,
-    wordSpacing: 500, //force line breaks
+    // wordSpacing: 500, //force line breaks
     svg: {
       color: `beta`,
       size: `icon.lg`,
@@ -55,25 +55,25 @@ const BannerVertical = () => (
   <Flex sx={styles.wrapper}>
     <Heading variant='h2' sx={styles.heading}>
       <FaRegHandshake />
-      Best Networking Workshops
+      Shop cây giống Ngọc Ngân
     </Heading>
     <Heading variant='h4' sx={styles.subheading}>
-      In this workshop, learn when and how to network with modern best
-      practices.
+      SĐT + ĐỊA CHỈ . Shop sẽ gọi lại ngay cho bạn để giao hàng sớm nhất. 
     </Heading>
-    <Text as='ul' variant='small' sx={styles.list}>
-      <li>Explain the importance of networking for career-building</li>
-      <li>Practice modern tips for effective networking</li>
-      <li>Understand the steps towards building your own network</li>
+    <Text as='ul' variant='s  mall' sx={styles.list}>
+      <li>Ship hàng toàn quốc.</li>
+      <li>Giao hàng trước, trả tiền sau.</li>
+      <li>Shop cam kết sản phẩm của shop như mô tả. Nhận hàng - Kiểm hàng mới thanh toán.</li>
+      <li>Không giống hình có thể hoàn trả.</li>
     </Text>
     <Button
       variant='primary'
       as={Link}
-      to='/'
+      to='/contact'
       sx={styles.button}
       aria-label='Learn More'
     >
-      Learn More
+      Liên Hệ Ngay
     </Button>
   </Flex>
 )

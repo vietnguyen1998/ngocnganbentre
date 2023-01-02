@@ -15,9 +15,9 @@ const PageContact = props => (
       <Main>
         <PageTitle
           header="Liên Hệ"
-          subheader='FlexiBlog theme comes with a pre-made contact form component.
-					You can integrate this form with serverless services such as Formspree, Getform,
-					FormKeep and others to receive form submissions via email.'
+          subheader='Điền thông tin của Anh/Chị vào Form bên dưới để được hổ trợ sớm nhất (Shop thường trả lời 
+            sau 6h chiều từ T2-T6. Do em làm giờ hành chánh). Hoặc nhắn tin Zalo 0386 569 374, do em đầy bạn nên Anh/Chị nhắn 
+            tin là em thấy và trả lời tin nhắn được'
         />
         <Divider />
         <ContactForm />
