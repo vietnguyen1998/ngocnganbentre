@@ -9,7 +9,7 @@ export const nodes = [
         layout: 'constrained',
         images: {
           fallback: {
-            src: '/static/a381cbe123484c239b97a005d5ce4a00/144fe/image.jpg',
+            src: '../../assets/image.jpg',
           },
         },
         width: 380,

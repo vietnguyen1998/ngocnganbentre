@@ -50,7 +50,6 @@ const CardMedia = ({
         as: GLink,
         to: slug
       }
-
   return (
     <Link
       {...linkProps}

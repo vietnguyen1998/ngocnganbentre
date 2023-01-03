@@ -28,7 +28,7 @@ const ContactForm = ({ handleSubmit, submitting, success }) => {
     >
       {success === true && (
         <Message variant='success'>
-          Cảm ơn bạn, chúng tôi sẽ lên hệ bạn sớm
+          Cảm ơn bạn, Shop sẽ lên hệ bạn sớm
         </Message>
       )}
       {success === false && (
