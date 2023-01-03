@@ -1,3 +1,5 @@
+import memphis from '../../assets/a1.jpg'
+
 export const nodes = [
   {
     id: '1',
@@ -9,7 +11,7 @@ export const nodes = [
         layout: 'constrained',
         images: {
           fallback: {
-            src: '../../assets/image.jpg',
+            src: memphis,
           },
         },
         width: 380,
@@ -27,7 +29,7 @@ export const nodes = [
         layout: 'constrained',
         images: {
           fallback: {
-            src: '/static/a381cbe123484c239b97a005d5ce4a00/144fe/image.jpg',
+            src: './image/1.jpg',
           },
         },
         width: 380,

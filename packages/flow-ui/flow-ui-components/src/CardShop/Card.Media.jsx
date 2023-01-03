@@ -5,6 +5,7 @@ import rv from '@components/utils/buildResponsiveVariant'
 import getImageVariant from '@components/utils/getImageVariant'
 import CardMediaIcon from './Card.Media.Icon'
 import CardMediaImage from './Card.Media.Image'
+import memphis from '../../assets/a1.jpg'
 
 const DEFAULT_IMAGE_VARIANT = 'vertical'
 
@@ -38,7 +39,7 @@ const CardMedia = ({
     DEFAULT_IMAGE_VARIANT
 
   const image = getImageVariant(thumbnail, imageVar)
-
+console.log(memphis)
   const linkProps = link
     ? {
         as: 'a',
