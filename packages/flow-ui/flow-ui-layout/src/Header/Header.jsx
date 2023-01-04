@@ -57,8 +57,9 @@ export const Header = ({ children }) => {
           {/* <Box sx={styles.colorModeContainer}>
             {darkMode && <HeaderColorMode />}
           </Box> */}
-          <Box sx={styles.colorModeContainer}>
+          <Box sx={styles.colorModeContainer} style={{position: "relative"}}>
             <CartShopping />
+            <div style={{position: "absolute", top: -6, right: -6, background: "#F7452E", width: 20, height: 20, textAlign: "center", color: "#ffffff", borderRadius: 15, lineHeight: 1.5, fontSize: 12}}>1</div>
           </Box>
         </Flex>
       </Container>

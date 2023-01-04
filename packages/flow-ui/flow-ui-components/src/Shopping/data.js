@@ -1,17 +1,25 @@
-import memphis from '../../assets/a1.jpg'
-
+import vu_sua_bonsai from '../../assets/vu-sua-bonsai.jpg'
+import ot_giong from '../../assets/ot_giong.jpg'
+import mai_vang from '../../assets/mai_vang.jpg'
+export const CATEGORIES = {
+  CAY_GIONG: "CAY_GIONG",
+  HOA_KIENG: "HOA_KIENG",
+  MAI_VANG: "MAI_VANG"
+}
 export const nodes = [
   {
     id: '1',
-    title: '5 ingenious innovations triggered by chaos in startups',
-    slug: '/5-ingenious-innovations-triggered-by-chaos-in-startups/',
+    title: 'Ớt giống',
+    price: '150.000 đ',
+    category: CATEGORIES.CAY_GIONG,
+    slug: '',
     thumbnail: {
       __typename: 'ImageSharp',
       ImageSharp_vertical: {
         layout: 'constrained',
         images: {
           fallback: {
-            src: memphis,
+            src: ot_giong,
           },
         },
         width: 380,
@@ -21,15 +29,17 @@ export const nodes = [
   },
   {
     id: '2',
-    title: '5 ingenious innovations triggered by chaos in startups',
-    slug: '/5-ingenious-innovations-triggered-by-chaos-in-startups/',
+    title: 'Vú sữa hoàng kim Bonsai 40x20x20cm',
+    price: '150.000đ',
+    category: CATEGORIES.HOA_KIENG,
+    slug: '',
     thumbnail: {
       __typename: 'ImageSharp',
       ImageSharp_vertical: {
         layout: 'constrained',
         images: {
           fallback: {
-            src: './image/1.jpg',
+            src: vu_sua_bonsai,
           },
         },
         width: 380,
@@ -39,87 +49,17 @@ export const nodes = [
   },
   {
     id: '3',
-    title: '5 ingenious innovations triggered by chaos in startups',
-    slug: '/5-ingenious-innovations-triggered-by-chaos-in-startups/',
+    title: 'Mai vàng cúc thọ hương',
+    price: '155.000đ',
+    category: CATEGORIES.MAI_VANG,
+    slug: '',
     thumbnail: {
       __typename: 'ImageSharp',
       ImageSharp_vertical: {
         layout: 'constrained',
         images: {
           fallback: {
-            src: '/static/a381cbe123484c239b97a005d5ce4a00/144fe/image.jpg',
-          },
-        },
-        width: 380,
-        height: 290
-      },
-    }
-  },
-  {
-    id: '4',
-    title: '5 ingenious innovations triggered by chaos in startups',
-    slug: '/5-ingenious-innovations-triggered-by-chaos-in-startups/',
-    thumbnail: {
-      __typename: 'ImageSharp',
-      ImageSharp_vertical: {
-        layout: 'constrained',
-        images: {
-          fallback: {
-            src: '/static/a381cbe123484c239b97a005d5ce4a00/144fe/image.jpg',
-          },
-        },
-        width: 380,
-        height: 290
-      },
-    }
-  },
-  {
-    id: '5',
-    title: '5 ingenious innovations triggered by chaos in startups',
-    slug: '/5-ingenious-innovations-triggered-by-chaos-in-startups/',
-    thumbnail: {
-      __typename: 'ImageSharp',
-      ImageSharp_vertical: {
-        layout: 'constrained',
-        images: {
-          fallback: {
-            src: '/static/a381cbe123484c239b97a005d5ce4a00/144fe/image.jpg',
-          },
-        },
-        width: 380,
-        height: 290
-      },
-    }
-  },
-  {
-    id: '6',
-    title: '5 ingenious innovations triggered by chaos in startups',
-    slug: '/5-ingenious-innovations-triggered-by-chaos-in-startups/',
-    thumbnail: {
-      __typename: 'ImageSharp',
-      ImageSharp_vertical: {
-        layout: 'constrained',
-        images: {
-          fallback: {
-            src: '/static/a381cbe123484c239b97a005d5ce4a00/144fe/image.jpg',
-          },
-        },
-        width: 380,
-        height: 290
-      },
-    }
-  },
-  {
-    id: '7',
-    title: '5 ingenious innovations triggered by chaos in startups',
-    slug: '/5-ingenious-innovations-triggered-by-chaos-in-startups/',
-    thumbnail: {
-      __typename: 'ImageSharp',
-      ImageSharp_vertical: {
-        layout: 'constrained',
-        images: {
-          fallback: {
-            src: '/static/a381cbe123484c239b97a005d5ce4a00/144fe/image.jpg',
+            src: mai_vang,
           },
         },
         width: 380,

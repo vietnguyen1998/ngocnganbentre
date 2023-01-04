@@ -1,9 +1,10 @@
 import React from 'react'
-import { Box } from 'theme-ui'
+import { Box, Button } from 'theme-ui'
 import rv from '@components/utils/buildResponsiveVariant'
 import CardBodyCategory from './Card.Body.Category'
 import CardBodyTitle from './Card.Body.Title'
 import CardBodyExcerpt from './Card.Body.Excerpt'
+import CardBodyPrice from './Card.Body.Price'
 
 const styles = {
   body: {
@@ -24,8 +25,13 @@ const CardBody = ({ children, omitBody, ...props }) =>
     >
       <CardBodyCategory {...props} />
       <CardBodyTitle {...props} />
-      <CardBodyExcerpt {...props} />
-      {children}
+      <div
+        style={{ padding: '0 12px', display: 'flex', alignContent: 'center' }}
+      >
+        <Button variant='primary' to='/' style={{ margin: 'auto' }}>
+          Thêm vào giỏ hàng
+        </Button>
+      </div>
     </Box>
   )
 

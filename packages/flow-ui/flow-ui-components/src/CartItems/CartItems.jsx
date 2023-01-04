@@ -47,24 +47,25 @@ const CartItems = React.forwardRef((props, ref) => {
     ...rest
   } = props
 
-  const cards = nodes.map((node, index) => (
-    <div style={{ marginBottom: 12 }}>
-      <Card
-        key={node.id}
-        variant={variant}
-        // onMouseOver={() => changeSlide(index)}
-        // onFocus={() => changeSlide(index)}
-        //In sliders with fade effect apply loading to the first card only
-        loading={false}
-        omitCategory={true}
-        styles={{ marginBottom: 12 }}
-        {...node}
-      />
-    </div>
-  ))
   return (
     <div>
-      <Box>{cards}</Box>
+      <Box>
+        {nodes.map((node, index) => (
+          <div style={{ marginBottom: 12 }}>
+            <Card
+              key={node.id}
+              variant={variant}
+              // onMouseOver={() => changeSlide(index)}
+              // onFocus={() => changeSlide(index)}
+              //In sliders with fade effect apply loading to the first card only
+              loading={false}
+              omitCategory={true}
+              styles={{ marginBottom: 12 }}
+              {...node}
+            />
+          </div>
+        ))}
+      </Box>
     </div>
   )
 })
