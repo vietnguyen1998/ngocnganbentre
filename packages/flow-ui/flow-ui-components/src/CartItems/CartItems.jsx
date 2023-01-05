@@ -2,8 +2,8 @@ import React from 'react'
 import { Box, Button, Input, Grid } from 'theme-ui'
 import Card from '@components/CardShop'
 import buildResponsiveVariant from '@components/utils/buildResponsiveVariant'
-import { nodes } from './data'
 import { FaSearch } from 'react-icons/fa'
+import { nodes } from '@components/Shopping/data'
 const variant = ['horizontal-md']
 
 const styles = {
