@@ -44,9 +44,6 @@ export const Header = ({ children }) => {
   const { services, mobileMenu, darkMode } = context.pageContext
 
   const algolia = services && services.algolia
-  React.useEffect(() => {
-    debugger
-  }, [items, setItems])
   return (
     <Box sx={styles.wrapper}>
       <Container variant='compact' sx={styles.container}>

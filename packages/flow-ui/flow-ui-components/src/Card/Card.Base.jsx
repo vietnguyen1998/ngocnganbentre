@@ -22,7 +22,6 @@ const styles = {
 const CardBase = ({ columns, onMouseOver, ...props }) => {
   const [items, setItems] = useLocalStorageState('items', [])
   function onClickRemove(item){
-    debugger
     let _items = [...items]
     let index = _items.map(e => e.id).indexOf(item.id)
     if (index > -1) { // only splice array when item is found
