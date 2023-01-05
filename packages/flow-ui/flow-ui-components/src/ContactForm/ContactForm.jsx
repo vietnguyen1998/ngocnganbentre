@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Label, Input, Textarea, Button, Message, Spinner } from 'theme-ui'
+import { useLocalStorageState } from '@components/utils'
 /**
  * How to enable form integration:
  *
@@ -18,7 +19,13 @@ import { Box, Label, Input, Textarea, Button, Message, Spinner } from 'theme-ui'
 
 
 const ContactForm = ({ handleSubmit, submitting, success }) => {
-
+  const [user, setUser] = useLocalStorageState(
+		'user',
+		{
+      name: '',
+      phone: '',
+    }
+	)
   return (
     <form
       onSubmit={handleSubmit}
@@ -39,13 +46,16 @@ const ContactForm = ({ handleSubmit, submitting, success }) => {
       <Box variant='forms.row'>
         <Box variant='forms.column'>
           <Label htmlFor='contact-form-name'>Tên</Label>
-          <Input type='text' id='contact-form-name' name='name' required />
+          <Input type='text' id='contact-form-name' name='name' required 
+            defaultValue={user.name}
+            />
         </Box>
         <Box variant='forms.column'>
           <Label htmlFor='contact-form-phone'>Số Điện Thoại</Label>
           <Input
             type='tel'
             placeholder='0123 456 789'
+            defaultValue={user.phone}
             id='contact-form-phone'
             name='phone'
             required

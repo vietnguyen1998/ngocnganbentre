@@ -6,6 +6,7 @@ import { HeaderLogo } from './Header.Logo'
 import { HeaderMenu } from './Header.Menu'
 import { HeaderColorMode } from './Header.ColorMode'
 import { CartShopping } from './Header.CartShopping'
+import { useLocalStorageState } from '@components/utils'
 
 const styles = {
   wrapper: {
@@ -38,11 +39,14 @@ const styles = {
 
 export const Header = ({ children }) => {
   const context = useContext(pageContextProvider)
+  const [items, setItems] = useLocalStorageState('items', [])
 
   const { services, mobileMenu, darkMode } = context.pageContext
 
   const algolia = services && services.algolia
-
+  React.useEffect(() => {
+    debugger
+  }, [items, setItems])
   return (
     <Box sx={styles.wrapper}>
       <Container variant='compact' sx={styles.container}>
@@ -57,9 +61,25 @@ export const Header = ({ children }) => {
           {/* <Box sx={styles.colorModeContainer}>
             {darkMode && <HeaderColorMode />}
           </Box> */}
-          <Box sx={styles.colorModeContainer} style={{position: "relative"}}>
+          <Box sx={styles.colorModeContainer} style={{ position: 'relative' }}>
             <CartShopping />
-            <div style={{position: "absolute", top: -6, right: -6, background: "#F7452E", width: 20, height: 20, textAlign: "center", color: "#ffffff", borderRadius: 15, lineHeight: 1.5, fontSize: 12}}>1</div>
+            <div
+              style={{
+                position: 'absolute',
+                top: -6,
+                right: -6,
+                background: '#F7452E',
+                width: 20,
+                height: 20,
+                textAlign: 'center',
+                color: '#ffffff',
+                borderRadius: 15,
+                lineHeight: 1.5,
+                fontSize: 12
+              }}
+            >
+              {items.length}
+            </div>
           </Box>
         </Flex>
       </Container>

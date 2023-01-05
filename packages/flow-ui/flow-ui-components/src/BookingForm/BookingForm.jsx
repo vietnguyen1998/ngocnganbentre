@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Label, Input, Textarea, Button, Message, Spinner } from 'theme-ui'
 import Modal from 'react-modal'
+import { useLocalStorageState } from '@components/utils'
 
 /**
  * How to enable form integration:
@@ -31,7 +32,13 @@ const customStyles = {
 const BookingForm = ({ handleSubmit, submitting, success }) => {
   const [modalIsOpen, setIsOpen] = React.useState(false)
   const [event, setEvent] = React.useState(null)
-
+  const [user, setUser] = useLocalStorageState(
+		'user',
+		{
+      name: '',
+      phone: '',
+    }
+	)
   function openModal() {
     setIsOpen(true)
   }
@@ -71,13 +78,16 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
       <Box variant='forms.row'>
         <Box variant='forms.column'>
           <Label htmlFor='contact-form-name'>Tên</Label>
-          <Input type='text' id='contact-form-name' name='name' required />
+          <Input type='text' id='contact-form-name' name='name' required
+            defaultValue={user.name} 
+            />
         </Box>
         <Box variant='forms.column'>
           <Label htmlFor='contact-form-phone'>Số Điện Thoại</Label>
           <Input
             type='tel'
             placeholder='0123 456 789'
+            defaultValue={user.phone} 
             id='contact-form-phone'
             name='phone'
             required

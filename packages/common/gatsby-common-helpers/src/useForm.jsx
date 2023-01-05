@@ -1,5 +1,6 @@
 import { useState, useEffect, useCallback } from 'react'
 import Telegram from 'telegram-send-message';
+import { useLocalStorageState } from '../utils';
 
 const Token = '5835487697:AAHxWURj_BUVqLmAk5moYYCrsf30SWZ9OvY'
 const Bot = '2144078824'
@@ -17,19 +18,27 @@ const useForm = () => {
   const [success, setSuccess] = useState()
   const [values, setValues] = useState()
   const [action, setAction] = useState()
-
+  const [user, setUser] = useLocalStorageState(
+		'user',
+		{
+      name: '',
+      phone: '',
+    }
+	)
   const handleSubmit = (e, { values, action } = {}) => {
     e.preventDefault()
     let html = ""
+
+    let name = ""
+    let phone = ""
+    let content = ""
     if(e.target && e.target.length > 0){
-      for (let i = 0; i < e.target.length; i++) {
-        const element = e.target[i];
-        if(element.value){
-          html += element.value + ' | '
-        }
-      }
+      name = e.target[0].value
+      phone = e.target[1].value
+      content = e.target[2].value
     }
-    sentMessageToTelegram(Telegram, html)
+    sentMessageToTelegram(Telegram, `${name} | ${phone} | ${content}`)
+    setUser({name, phone})
     if (values) setValues(values)
     if (action) setAction(action)
     setTarget(e.target)
