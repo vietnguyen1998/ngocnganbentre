@@ -3,7 +3,8 @@ import PropTypes from 'prop-types'
 import { Box, Label, Input, Textarea, Button, Message, Spinner } from 'theme-ui'
 import Modal from 'react-modal'
 import { useLocalStorageState } from '@components/utils'
-import { toast } from 'react-toastify';
+import { toast } from 'react-toastify'
+import { nodes } from '@components/Shopping/data'
 /**
  * How to enable form integration:
  *
@@ -32,16 +33,17 @@ const customStyles = {
 const BookingForm = ({ handleSubmit, submitting, success }) => {
   const [modalIsOpen, setIsOpen] = React.useState(false)
   const [event, setEvent] = React.useState(null)
-  const [user, setUser] = useLocalStorageState(
-		'user',
-		{
-      name: '',
-      phone: '',
-    }
-	)
+  const [user, setUser] = useLocalStorageState('user', {
+    name: '',
+    phone: '',
+    address: ''
+  })
+  const [items, setItems] = useLocalStorageState('items', [])
+
   function openModal() {
     setIsOpen(true)
   }
+
   function closeModal() {
     setIsOpen(false)
   }
@@ -50,12 +52,26 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
     e.preventDefault()
     openModal()
     setEvent(e)
-    toast.success("Wow so easy! xx")
     return
   }
 
   function handleSubmitCustom() {
-    handleSubmit(event)
+    let _nodes = [...nodes]
+    let _items = []
+    let values = ''
+    items.map(x => {
+      let _item = _nodes.filter(y => y.id == x.id)
+      _item[0].count = x.count
+      values += `(${_item[0].title} ${_item[0].price}. SL ${x.count}- ${
+        x.count * _item[0].price
+      }) `
+      _items.push(_item[0])
+    })
+    let total = 0
+    _items.map(x => (total += x.price * x.count))
+    values += `(Tổng: ${total})`
+
+    handleSubmit(event, { values: values })
     closeModal()
   }
 
@@ -67,9 +83,7 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
       demo='demo'
     >
       {success === true && (
-        <Message variant='success'>
-          Cảm ơn bạn, Shop sẽ lên hệ bạn sớm
-        </Message>
+        <Message variant='success'>Cảm ơn bạn, Shop sẽ lên hệ bạn sớm</Message>
       )}
       {success === false && (
         <Message variant='error'>
@@ -79,16 +93,20 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
       <Box variant='forms.row'>
         <Box variant='forms.column'>
           <Label htmlFor='contact-form-name'>Tên</Label>
-          <Input type='text' id='contact-form-name' name='name' required
-            defaultValue={user.name} 
-            />
+          <Input
+            type='text'
+            id='contact-form-name'
+            name='name'
+            required
+            defaultValue={user.name}
+          />
         </Box>
         <Box variant='forms.column'>
           <Label htmlFor='contact-form-phone'>Số Điện Thoại</Label>
           <Input
             type='tel'
             placeholder='0123 456 789'
-            defaultValue={user.phone} 
+            defaultValue={user.phone}
             id='contact-form-phone'
             name='phone'
             required
@@ -113,8 +131,10 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
         <Input type='text' id='contact-form-subject' name='subject' required />
       </Box> */}
       <Box variant='forms.row'>
-        <Label htmlFor='contact-form-message'>Địa Chỉ</Label>
-        <Textarea name='message' id='contact-form-message' required />
+        <Label htmlFor='contact-form-message'>
+          Địa Chỉ
+        </Label>
+        <Textarea name='message' id='contact-form-message' required  defaultValue={user.address}/>
       </Box>
       <Button
         variant={success || submitting ? 'disabled' : 'primary'}

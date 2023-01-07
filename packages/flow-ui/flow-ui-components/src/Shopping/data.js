@@ -10,7 +10,7 @@ export const nodes = [
   {
     id: '1',
     title: 'Ớt giống',
-    price: '150.000 đ',
+    price: '150000',
     category: CATEGORIES.CAY_GIONG,
     slug: '',
     thumbnail: {
@@ -30,7 +30,7 @@ export const nodes = [
   {
     id: '2',
     title: 'Vú sữa hoàng kim Bonsai 40x20x20cm',
-    price: '150.000đ',
+    price: '150000',
     category: CATEGORIES.HOA_KIENG,
     slug: '',
     thumbnail: {
@@ -50,7 +50,7 @@ export const nodes = [
   {
     id: '3',
     title: 'Mai vàng cúc thọ hương',
-    price: '155.000đ',
+    price: '155000',
     category: CATEGORIES.MAI_VANG,
     slug: '',
     thumbnail: {

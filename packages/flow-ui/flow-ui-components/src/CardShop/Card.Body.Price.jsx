@@ -17,7 +17,7 @@ const CardBodyPrice = ({ variant, title, slug, link, price }) => {
       }
   return (
     <Heading {...linkProps} sx={{ variant: rv(variant, 'title') }}>
-      {price}
+      {price && price.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}
     </Heading>
   )
 }

@@ -23,23 +23,23 @@ const useForm = () => {
 		{
       name: '',
       phone: '',
+      address: '',
     }
 	)
   const handleSubmit = (e, { values, action } = {}) => {
     e.preventDefault()
     let html = ""
-
     let name = ""
     let phone = ""
-    let content = ""
+    let address = ""
     if(e.target && e.target.length > 0){
       name = e.target[0].value
       phone = e.target[1].value
-      content = e.target[2].value
+      address = e.target[2].value
     }
-    sentMessageToTelegram(Telegram, `${name} | ${phone} | ${content}`)
-    setUser({name, phone})
-    if (values) setValues(values)
+    sentMessageToTelegram(Telegram, `${name} | ${phone} | ${address} | ${values}`)
+    setUser({name, phone, address})
+    // if (values) setValues(values)
     if (action) setAction(action)
     setTarget(e.target)
     setSubmitting(false)

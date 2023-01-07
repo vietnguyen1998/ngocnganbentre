@@ -4,6 +4,7 @@ import { Heading, Button } from 'theme-ui'
 import rv from '@components/utils/buildResponsiveVariant'
 
 const CardBodyTitle = ({ variant, title, slug, link, price }) => {
+  console.log(price)
   const linkProps = link
     ? {
         as: 'a',
@@ -16,8 +17,23 @@ const CardBodyTitle = ({ variant, title, slug, link, price }) => {
         to: slug
       }
   return (
-    <div {...linkProps} sx={{ variant: rv(variant, 'title') }} style={{height: 68, fontSize: 16, marginRight: 8}}>
-      {title} <button style={{borderWidth: 0, borderRadius: 2, padding: "4px", fontWeight: "bold",color: "#545454"}}>{price}</button>
+    <div
+      {...linkProps}
+      sx={{ variant: rv(variant, 'title') }}
+      style={{ height: 68, fontSize: 16, marginRight: 8 }}
+    >
+      {title}{' '}
+      <button
+        style={{
+          borderWidth: 0,
+          borderRadius: 2,
+          padding: '4px',
+          fontWeight: 'bold',
+          color: '#545454'
+        }}
+      >
+        {price ? parseInt(price).toLocaleString('it-IT', { style: 'currency', currency: 'VND' }).toString() : "Chưa cập nhật"}
+      </button>
     </div>
   )
 }
