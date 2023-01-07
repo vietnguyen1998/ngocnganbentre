@@ -5,6 +5,8 @@ import theme from '@elegantstack/flow-ui-theme/src/theme'
 import pageContextProvider from '@helpers/pageContextProvider'
 import { Header } from '../Header/Header'
 import { Footer } from '../Footer/Footer'
+import { ToastContainer, toast } from 'react-toastify'
+import 'react-toastify/dist/ReactToastify.css'
 
 export const Layout = ({ children, pageContext, location }) => (
   <ThemeProvider theme={theme}>
@@ -14,6 +16,11 @@ export const Layout = ({ children, pageContext, location }) => (
         <Header />
         <Box variant='layout.body'>{children}</Box>
         <Footer />
+        <ToastContainer
+          position='bottom-right'
+          theme='colored'
+          autoClose={3000}
+        />
       </Flex>
     </pageContextProvider.Provider>
   </ThemeProvider>

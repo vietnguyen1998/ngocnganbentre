@@ -4,6 +4,7 @@ import Card from '@components/CardShop'
 import buildResponsiveVariant from '@components/utils/buildResponsiveVariant'
 import { CATEGORIES, nodes } from './data'
 import { FaSearch } from 'react-icons/fa'
+import { useLocalStorageState } from '@components/utils'
 const variant = ['horizontal-md', 'vertical']
 const cardListVariant = [
   'lists.cards.fixed.horizontal-md',
@@ -53,6 +54,7 @@ const Shopping = React.forwardRef((props, ref) => {
   const [carts, setCarts] = React.useState(nodes)
   const [valueSearch, setValueSearch] = React.useState("")
   const [selected, setSelected] = React.useState(0)
+  const [itemsStore, setItemsStore] = useLocalStorageState('items', [])
 
   React.useEffect(() => {
     let new_data = nodes.filter((x)=>x.category == selected)
@@ -117,6 +119,8 @@ const Shopping = React.forwardRef((props, ref) => {
             <Card
               key={node.id}
               variant={variant}
+              itemsStore={itemsStore}
+              setItemsStore={setItemsStore}
               // onMouseOver={() => changeSlide(index)}
               // onFocus={() => changeSlide(index)}
               //In sliders with fade effect apply loading to the first card only

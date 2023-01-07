@@ -64,5 +64,7 @@ Card.propTypes = {
   timeToRead: PropTypes.number,
   excerpt: PropTypes.oneOfType([PropTypes.string, PropTypes.element]),
   thumbnail: PropTypes.object,
-  thumbnailText: PropTypes.string
+  thumbnailText: PropTypes.string,
+  deleteItem: PropTypes.func,
+  changeCountItem: PropTypes.func,
 }

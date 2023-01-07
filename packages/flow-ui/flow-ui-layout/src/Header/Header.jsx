@@ -61,6 +61,7 @@ export const Header = ({ children }) => {
           <Box sx={styles.colorModeContainer} style={{ position: 'relative' }}>
             <CartShopping />
             <div
+            id='numberOfProduct'
               style={{
                 position: 'absolute',
                 top: -6,

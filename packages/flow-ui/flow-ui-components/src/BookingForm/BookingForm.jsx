@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 import { Box, Label, Input, Textarea, Button, Message, Spinner } from 'theme-ui'
 import Modal from 'react-modal'
 import { useLocalStorageState } from '@components/utils'
-
+import { toast } from 'react-toastify';
 /**
  * How to enable form integration:
  *
@@ -50,6 +50,7 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
     e.preventDefault()
     openModal()
     setEvent(e)
+    toast.success("Wow so easy! xx")
     return
   }
 

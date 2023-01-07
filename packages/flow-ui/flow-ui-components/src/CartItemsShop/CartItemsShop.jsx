@@ -60,7 +60,35 @@ const CartItemsShop = React.forwardRef((props, ref) => {
       _items.push(_item[0])
     })
     setCarts(_items)
+    
   }, [items])
+
+  function deleteItem(item){
+    let _items = [...items]
+    let _carts = [...carts]
+    let index = _items.map(e => e.id).indexOf(item.id)
+    if (index > -1) {
+      // only splice array when item is found
+      _items.splice(index, 1) // 2nd parameter means remove one item only
+      _carts.splice(index, 1) // 2nd parameter means remove one item only
+      setItems(_items)
+      setCarts(_carts)
+      document.getElementById("numberOfProduct").innerHTML = _items.length.toString();
+    }
+  }
+
+  function changeCountItem(e, item){
+    let value = e.target.value
+    let _items = [...items]
+    let _carts = [...carts]
+    let index = _items.map(e => e.id).indexOf(item.id)
+    if (index > -1) {
+      _items[index].count = value
+      _carts[index].count = value
+      setItems(_items)
+      setCarts(_carts)
+    }
+  }
 
   return (
     <div>
@@ -74,6 +102,8 @@ const CartItemsShop = React.forwardRef((props, ref) => {
               // onFocus={() => changeSlide(index)}
               //In sliders with fade effect apply loading to the first card only
               loading={false}
+              deleteItem={deleteItem}
+              changeCountItem={changeCountItem}
               omitCategory={true}
               styles={{ marginBottom: 12 }}
               {...node}

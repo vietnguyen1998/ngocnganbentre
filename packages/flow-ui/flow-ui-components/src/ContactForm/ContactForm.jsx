@@ -2,6 +2,7 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { Box, Label, Input, Textarea, Button, Message, Spinner } from 'theme-ui'
 import { useLocalStorageState } from '@components/utils'
+import { toast } from 'react-toastify';
 /**
  * How to enable form integration:
  *
@@ -26,9 +27,14 @@ const ContactForm = ({ handleSubmit, submitting, success }) => {
       phone: '',
     }
 	)
+
+  function handleSubmitCustom(e){
+    handleSubmit(e)
+    toast.success("Gửi thành công, Shop sẽ liên hệ bạn sớm!")
+  }
   return (
     <form
-      onSubmit={handleSubmit}
+      onSubmit={handleSubmitCustom}
       method='POST'
       action='YOUR_ACTION_END_POINT'
       demo='demo'

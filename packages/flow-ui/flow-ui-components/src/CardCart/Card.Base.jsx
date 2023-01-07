@@ -20,17 +20,16 @@ const styles = {
 }
 
 const CardBase = ({ columns, onMouseOver, ...props }) => {
-  const [items, setItems] = useLocalStorageState('items', [])
+  const {deleteItem, changeCountItem} = props
+  
   function onClickRemove(item) {
-    let _items = [...items]
-    let index = _items.map(e => e.id).indexOf(item.id)
-    if (index > -1) {
-      // only splice array when item is found
-      _items.splice(index, 1) // 2nd parameter means remove one item only
-      setItems(_items)
-    }
+    deleteItem(item)
   }
 
+  function onClickChangeCountItem(e) {
+    changeCountItem(e, props)
+  }
+  
   return (
     <Box
       className='blog_card'
@@ -74,7 +73,8 @@ const CardBase = ({ columns, onMouseOver, ...props }) => {
                 id='contact-form-name'
                 name='name'
                 required
-                defaultValue={props.count}
+                value={props.count}
+                onChange={onClickChangeCountItem}
                 style={{ width: 88, marginLeft: 8 }}
               />
             </div>
