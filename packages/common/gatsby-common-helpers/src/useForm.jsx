@@ -1,6 +1,6 @@
+import { useLocalStorageState } from '@components/utils';
 import { useState, useEffect, useCallback } from 'react'
 import Telegram from 'telegram-send-message';
-import { useLocalStorageState } from '../utils';
 
 const Token = '5835487697:AAHxWURj_BUVqLmAk5moYYCrsf30SWZ9OvY'
 const Bot = '2144078824'

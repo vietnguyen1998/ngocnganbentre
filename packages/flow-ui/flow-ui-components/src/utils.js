@@ -12,6 +12,12 @@ function useLocalStorageState(
   defaultValue = '',
   { serialize = JSON.stringify, deserialize = JSON.parse } = {},
 ) {
+  const isBrowser = () => typeof window !== "undefined"
+  if(!isBrowser()){
+    const [state, setState] = React.useState(defaultValue)
+    return [state, setState]
+  }
+
   const [state, setState] = React.useState(() => {
     const valueInLocalStorage = window.localStorage.getItem(key)
     if (valueInLocalStorage) {

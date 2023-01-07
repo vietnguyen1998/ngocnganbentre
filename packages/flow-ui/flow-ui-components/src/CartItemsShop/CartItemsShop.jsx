@@ -1,6 +1,6 @@
 import React from 'react'
 import { Box, Button, Input, Grid } from 'theme-ui'
-import Card from '@components/Card'
+import Card from '@components/CardCart'
 import buildResponsiveVariant from '@components/utils/buildResponsiveVariant'
 import { FaSearch } from 'react-icons/fa'
 import { nodes } from '@components/Shopping/data'

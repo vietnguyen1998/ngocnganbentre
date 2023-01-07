@@ -54,8 +54,30 @@ const CardBase = ({ columns, onMouseOver, ...props }) => {
             variant: rv(props.variant, 'content')
           }}
         >
+          <div
+            onClick={() => onClickRemove(props)}
+            style={{
+              position: 'absolute',
+              top: 8,
+              right: 16,
+              cursor: 'pointer'
+            }}
+          >
+            <FaWindowClose></FaWindowClose>
+          </div>
           <Media {...props} />
           <Body {...props}>
+            <div style={{ display: 'flex', alignItems: 'center' }}>
+              <span>Số lượng</span>
+              <Input
+                type='number'
+                id='contact-form-name'
+                name='name'
+                required
+                defaultValue={props.count}
+                style={{ width: 88, marginLeft: 8 }}
+              />
+            </div>
             <Footer {...props} />
           </Body>
         </Flex>
