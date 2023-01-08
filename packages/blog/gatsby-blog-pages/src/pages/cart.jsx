@@ -10,9 +10,10 @@ import Booking from '@widgets/Booking'
 import ContactInfo from '@widgets/ContactInfo'
 import Commitment from '@widgets/Commitment'
 import { Grid, Box } from 'theme-ui'
+import { useLocalStorageState } from '@components/utils'
 const PageAuthors = props => {
   const authors = useBlogAuthors()
-  
+  const [items, setItems] = useLocalStorageState('items', [])
   return (
     <Layout {...props}>
       <Seo title='Our Team' />
@@ -24,11 +25,11 @@ const PageAuthors = props => {
         <Main>
           <Grid width={[400, 'auto']} gap={4}>
             <Box bg='primary'>
-              <CartItems />
+              <CartItems items={items} setItems={setItems}/>
               <Divider />
             </Box>
             <Box bg='muted'>
-              <Booking />
+              <Booking items={items} setItems={setItems} />
             </Box>
           </Grid>
         </Main>

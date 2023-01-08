@@ -3,12 +3,18 @@ import { Card } from 'theme-ui'
 import BookingFormComponent from '@components/BookingForm'
 import useForm from '@helpers/useForm'
 
-const Booking = () => {
+const Booking = ({items, setItems}) => {
   const { handleSubmit, submitting, success } = useForm()
 
   return (
     <Card variant='paper'>
-      <BookingFormComponent {...{ handleSubmit, submitting, success }} />
+      <BookingFormComponent
+        handleSubmit={handleSubmit}
+        submitting={submitting}
+        success={success}
+        items={items}
+        setItems={setItems}
+      />
     </Card>
   )
 }

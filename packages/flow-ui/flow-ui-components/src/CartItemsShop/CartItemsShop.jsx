@@ -5,6 +5,8 @@ import buildResponsiveVariant from '@components/utils/buildResponsiveVariant'
 import { FaSearch } from 'react-icons/fa'
 import { nodes } from '@components/Shopping/data'
 import { useLocalStorageState } from '@components/utils'
+import empty_cart_image from './empty-cart.png'
+
 const variant = ['horizontal-md']
 import { Card } from 'theme-ui'
 const styles = {
@@ -45,12 +47,13 @@ const CartItemsShop = React.forwardRef((props, ref) => {
     aside,
     asNavFor,
     loading,
+    items,
+    setItems,
     ...rest
   } = props
 
   const [carts, setCarts] = React.useState(null)
-  const [totalPrices, setTotalPrices] = React.useState("")
-  const [items, setItems] = useLocalStorageState('items', [])
+  const [totalPrices, setTotalPrices] = React.useState('')
 
   React.useEffect(() => {
     let _nodes = [...nodes]
@@ -62,7 +65,7 @@ const CartItemsShop = React.forwardRef((props, ref) => {
     })
     setCarts(_items)
     let total = 0
-    _items.map(x => total += (x.price * x.count))
+    _items.map(x => (total += x.price * x.count))
     setTotalPrices(total)
   }, [items])
 
@@ -97,6 +100,14 @@ const CartItemsShop = React.forwardRef((props, ref) => {
   return (
     <div>
       <Box>
+        {carts && carts.length == 0 ? (
+          <div style={{ display: 'flex', justifyContent: 'center' }}>
+            <img
+              style={{ width: 200, margin: '0 auto' }}
+              src={empty_cart_image}
+            ></img>
+          </div>
+        ) : null}
         {carts &&
           carts.map((node, index) => (
             <div style={{ marginBottom: 12 }}>
@@ -115,12 +126,25 @@ const CartItemsShop = React.forwardRef((props, ref) => {
               />
             </div>
           ))}
-          <p style={{fontStyle: 'italic'}}><span style={{color: "red"}}>* </span>Shop bao ship đơn hàng trên 500.000đ</p>
-        <Card
-        >
-          <div style={{display: "flex", justifyContent: "space-between", padding: "0 16px"}}>
+        <p style={{ fontStyle: 'italic' }}>
+          <span style={{ color: 'red' }}>* </span>Shop bao ship đơn hàng trên
+          500.000đ
+        </p>
+        <Card>
+          <div
+            style={{
+              display: 'flex',
+              justifyContent: 'space-between',
+              padding: '0 16px'
+            }}
+          >
             <p>Tổng cộng: </p>
-            <p style={{fontWeight: "bold"}}>{totalPrices.toLocaleString('it-IT', {style : 'currency', currency : 'VND'})}</p>
+            <p style={{ fontWeight: 'bold' }}>
+              {totalPrices.toLocaleString('it-IT', {
+                style: 'currency',
+                currency: 'VND'
+              })}
+            </p>
           </div>
         </Card>
       </Box>

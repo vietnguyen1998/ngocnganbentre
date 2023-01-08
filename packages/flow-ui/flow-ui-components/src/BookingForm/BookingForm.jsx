@@ -1,10 +1,20 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { Box, Label, Input, Textarea, Button, Message, Spinner } from 'theme-ui'
+import {
+  Box,
+  Label,
+  Input,
+  Textarea,
+  Button,
+  Message,
+  Spinner,
+  Divider
+} from 'theme-ui'
 import Modal from 'react-modal'
 import { useLocalStorageState } from '@components/utils'
 import { toast } from 'react-toastify'
 import { nodes } from '@components/Shopping/data'
+
 /**
  * How to enable form integration:
  *
@@ -30,7 +40,13 @@ const customStyles = {
     transform: 'translate(-50%, -50%)'
   }
 }
-const BookingForm = ({ handleSubmit, submitting, success }) => {
+const BookingForm = ({
+  handleSubmit,
+  submitting,
+  success,
+  items,
+  setItems
+}) => {
   const [modalIsOpen, setIsOpen] = React.useState(false)
   const [event, setEvent] = React.useState(null)
   const [user, setUser] = useLocalStorageState('user', {
@@ -38,24 +54,11 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
     phone: '',
     address: ''
   })
-  const [items, setItems] = useLocalStorageState('items', [])
+  const [itemsFull, setItemsFull] = React.useState([])
+  const [total, setTotal] = React.useState(0)
+  const [stringValue, setStringValue] = React.useState('')
 
-  function openModal() {
-    setIsOpen(true)
-  }
-
-  function closeModal() {
-    setIsOpen(false)
-  }
-
-  function customSubmit(e) {
-    e.preventDefault()
-    openModal()
-    setEvent(e)
-    return
-  }
-
-  function handleSubmitCustom() {
+  React.useEffect(() => {
     let _nodes = [...nodes]
     let _items = []
     let values = ''
@@ -67,12 +70,37 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
       }) `
       _items.push(_item[0])
     })
+    setItemsFull(_items)
     let total = 0
     _items.map(x => (total += x.price * x.count))
     values += `(Tổng: ${total})`
+    setStringValue(values)
+    setTotal(total)
+  }, [items, setItems, items.count])
 
-    handleSubmit(event, { values: values })
+  function openModal() {
+    setIsOpen(true)
+  }
+
+  function closeModal() {
+    setIsOpen(false)
+  }
+
+  function customSubmit(e) {
+    e.preventDefault()
+    if (itemsFull && itemsFull.length == 0) {
+      toast.error('Giỏ hàng chưa có sản phẩm nào')
+      return
+    }
+    openModal()
+    setEvent(e)
+    return
+  }
+
+  function handleSubmitCustom() {
+    handleSubmit(event, { values: stringValue })
     closeModal()
+    setItems([])
   }
 
   return (
@@ -131,10 +159,13 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
         <Input type='text' id='contact-form-subject' name='subject' required />
       </Box> */}
       <Box variant='forms.row'>
-        <Label htmlFor='contact-form-message'>
-          Địa Chỉ
-        </Label>
-        <Textarea name='message' id='contact-form-message' required  defaultValue={user.address}/>
+        <Label htmlFor='contact-form-message'>Địa Chỉ</Label>
+        <Textarea
+          name='message'
+          id='contact-form-message'
+          required
+          defaultValue={user.address}
+        />
       </Box>
       <Button
         variant={success || submitting ? 'disabled' : 'primary'}
@@ -151,8 +182,76 @@ const BookingForm = ({ handleSubmit, submitting, success }) => {
         style={customStyles}
         contentLabel='Example Modal'
       >
-        <div>I am a modal</div>
-        <button onClick={handleSubmitCustom}>close</button>
+        <p style={{margin: 0, fontSize: 20, fontWeight: "bold", marginBottom: 8}}>* Xác Nhận Đặt Hàng</p>
+        <div
+          style={{
+            background: '#E2E8F0',
+            padding: '4px 8px',
+            borderRadius: 4,
+            marginBottom: 16
+          }}
+        >
+          <p style={{ margin: 0 }}>{user.name + ' (' + user.phone + ')'}</p>
+          <p style={{ margin: 0 }}>{user.address}</p>
+        </div>
+        {itemsFull &&
+          itemsFull.map(x => {
+            return (
+              <div
+                style={{
+                  display: 'flex',
+                  justifyContent: 'space-between',
+                  marginBottom: 6
+                }}
+              >
+                <div>
+                  <span>{x.title}</span>
+                  <span></span>
+                  {`. (SL ${x.count} - ${parseInt(x.price).toLocaleString(
+                    'it-IT',
+                    {
+                      style: 'currency',
+                      currency: 'VND'
+                    }
+                  )})`}
+                </div>
+                <div style={{ width: 120, textAlign: 'right' }}>
+                  {parseInt(x.price * x.count).toLocaleString('it-IT', {
+                    style: 'currency',
+                    currency: 'VND'
+                  })}
+                </div>
+              </div>
+            )
+          })}
+        <Divider style={{ margin: '12px 0' }} />
+        <div
+          style={{
+            display: 'flex',
+            justifyContent: 'space-between',
+            fontWeight: 'bold'
+          }}
+        >
+          <div>Tổng</div>
+          <div style={{ width: 120, textAlign: 'right' }}>
+            {parseInt(total).toLocaleString('it-IT', {
+              style: 'currency',
+              currency: 'VND'
+            })}
+          </div>
+        </div>
+
+        <div style={{ marginTop: 24, display: 'flex', justifyContent: 'end' }}>
+          <Button
+            variant='dark'
+            mr={2}
+            style={{ minWidth: 60 }}
+            onClick={closeModal}
+          >
+            Hủy
+          </Button>
+          <Button onClick={handleSubmitCustom}>Gửi</Button>
+        </div>
       </Modal>
     </form>
   )
